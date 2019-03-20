@@ -21,10 +21,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "npx eslint src --fix"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "@cr4zyc4t/eslint-config-react-strict"
   },
   "browserslist": [
     ">0.2%",

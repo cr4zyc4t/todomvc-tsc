@@ -1,7 +1,5 @@
 import { connect } from 'react-redux';
 
-import { Dispatch } from "redux";
-
 import { changeFilter } from '../actions/filter';
 import { clearCompleted } from '../actions/tasks';
 import Footer from '../components/Footer';
@@ -13,9 +11,9 @@ const mapStateToProps = (state: AppState) => ({
   remainingTasks: countRemainingTasks(state),
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-  setFilter: (filter: string) => dispatch(changeFilter(filter)),
-  clearCompleted: () => dispatch(clearCompleted()),
-});
+const mapDispatchToProps = {
+  setFilter: changeFilter,
+  clearCompleted,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);

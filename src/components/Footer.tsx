@@ -10,45 +10,43 @@ interface FooterProps {
   clearCompleted(): void;
 }
 
-class Footer extends React.Component<FooterProps, {}> {
-  setFilter = (filter: string) => (e: React.SyntheticEvent) => {
+const Footer: React.FC<FooterProps> = (props) => {
+  const setFilter = (filter: string) => (e: React.SyntheticEvent) => {
     e.preventDefault();
-    this.props.setFilter(filter);
+    props.setFilter(filter);
   }
 
-  render() {
-    const { remainingTasks, filter, clearCompleted } = this.props;
-    const activeTodoWord = pluralize('item', remainingTasks);
-    return (
-      <footer className="footer">
-        <span className="todo-count">
-          <strong>{remainingTasks}</strong> {activeTodoWord} left
+  const { remainingTasks, filter, clearCompleted } = props;
+  const activeTodoWord = pluralize('item', remainingTasks);
+  return (
+    <footer className="footer">
+      <span className="todo-count">
+        <strong>{remainingTasks}</strong> {activeTodoWord} left
         </span>
-        <ul className="filters">
-          {
-            Object.values(FILTER).map(filterValue => {
-              return (
-                <li key={filterValue}>
-                  <a
-                    href=""
-                    onClick={this.setFilter(filterValue)}
-                    className={classNames({ selected: filter === filterValue })}>
-                    {filterValue}
-                  </a>
-                </li>
-              )
-            })
-          }
-        </ul>
-        <button
-          className="clear-completed"
-          onClick={clearCompleted}
-        >
-          Clear completed
+      <ul className="filters">
+        {
+          Object.values(FILTER).map(filterValue => {
+            return (
+              <li key={filterValue}>
+                <a
+                  href=""
+                  onClick={setFilter(filterValue)}
+                  className={classNames({ selected: filter === filterValue })}>
+                  {filterValue}
+                </a>
+              </li>
+            )
+          })
+        }
+      </ul>
+      <button
+        className="clear-completed"
+        onClick={clearCompleted}
+      >
+        Clear completed
         </button>
-      </footer>
-    );
-  }
+    </footer>
+  );
 }
 
 export default Footer;

@@ -1,14 +1,12 @@
 import * as React from 'react';
 import uuid from 'uuid/v4';
-import PropTypes from 'prop-types';
 
 interface HeaderProps {
   addTask(id: string, title: string): void;
 }
 
 const Header: React.FC<HeaderProps> = ({ addTask }) => {
-
-  const submitNewTask = React.useCallback((e: React.KeyboardEvent) => {
+  const submitNewTask = (e: React.KeyboardEvent) => {
     if (e.keyCode !== 13) {
       return;
     }
@@ -20,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ addTask }) => {
       addTask(uuid(), taskTitle);
       input.value = '';
     }
-  }, []);
+  };
 
   return (
     <header className="header">

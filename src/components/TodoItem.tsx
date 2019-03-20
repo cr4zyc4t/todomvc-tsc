@@ -10,7 +10,7 @@ interface TodoItemProps {
   toggleTask(id: string): void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = (props: TodoItemProps) => {
+const TodoItem: React.FC<TodoItemProps> = React.memo((props: TodoItemProps) => {
 
   const [editing, setEditing] = React.useState(false);
   const taskInput = React.useRef(null);
@@ -70,6 +70,6 @@ const TodoItem: React.FC<TodoItemProps> = (props: TodoItemProps) => {
       />
     </li>
   );
-}
+});
 
 export default TodoItem;
