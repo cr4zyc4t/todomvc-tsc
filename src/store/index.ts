@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose, Dispatch, AnyAction, Store, Middleware } from 'redux';
 import rootReducer from './reducers';
 import { Task } from './reducers/tasks';
+import { FILTER } from '../config';
 
 export interface AppState {
   filter: string,
@@ -18,7 +19,7 @@ if (savedTodosStr) {
 } else {
   savedTodos = {
     tasks: [],
-    filter: 'all'
+    filter: FILTER.ALL
   };
 }
 
@@ -35,7 +36,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   rootReducer,
-  savedTodos as any,
+  savedTodos,
   composeEnhancers(
     applyMiddleware(
       saveToStorage

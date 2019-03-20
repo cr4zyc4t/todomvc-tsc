@@ -1,6 +1,7 @@
 import { CHANGE_FILTER, FilterAction } from '../../actions/filter';
+import { FILTER } from '../../config';
 
-function users(state = 'all', actions: FilterAction): string {
+function users(state = FILTER.ALL, actions: FilterAction): string {
   switch (actions.type) {
     case CHANGE_FILTER:
       return actions.payload.filter;

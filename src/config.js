@@ -3,8 +3,3 @@ export const FILTER = {
   COMPLETED: "Completed",
   ACTIVE: "Active",
 };
-
-export const defaultState = {
-  filter: FILTER.ALL,
-  tasks: [],
-};

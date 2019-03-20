@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import pluralize from 'pluralize';
+import { FILTER } from '../config';
 
 interface FooterProps {
   filter: string;
@@ -24,32 +25,20 @@ class Footer extends React.Component<FooterProps, {}> {
           <strong>{remainingTasks}</strong> {activeTodoWord} left
         </span>
         <ul className="filters">
-          <li>
-            <a
-              href=""
-              onClick={this.setFilter('all')}
-              className={classNames({ selected: filter === 'all' })}>
-              All
-            </a>
-          </li>
-          &nbsp;
-          <li>
-            <a
-              href=""
-              onClick={this.setFilter('active')}
-              className={classNames({ selected: filter === 'active' })}>
-              Active
-            </a>
-          </li>
-          &nbsp;
-          <li>
-            <a
-              href=""
-              onClick={this.setFilter('completed')}
-              className={classNames({ selected: filter === 'completed' })}>
-              Completed
-            </a>
-          </li>
+          {
+            Object.values(FILTER).map(filterValue => {
+              return (
+                <li key={filterValue}>
+                  <a
+                    href=""
+                    onClick={this.setFilter(filterValue)}
+                    className={classNames({ selected: filter === filterValue })}>
+                    {filterValue}
+                  </a>
+                </li>
+              )
+            })
+          }
         </ul>
         <button
           className="clear-completed"
