@@ -6,53 +6,56 @@ export interface TaskPayload {
   checked?: boolean;
 }
 
-export interface TaskAction extends Action<string> {
+interface PayloadedAction<T> extends Action<T> {
   payload: TaskPayload;
 }
 
-export const ADD_TASK = 'ADD_TASK';
-export const addTask: ActionCreator<TaskAction> = (id: string, title: string) => ({
-  type: ADD_TASK,
+interface AddTask extends PayloadedAction<"task-add"> { }
+export const addTask: ActionCreator<AddTask> = (id: string, title: string) => ({
+  type: "task-add",
   payload: {
     id,
     title,
   }
 });
 
-export const EDIT_TASK = 'EDIT_TASK';
-export const editTask: ActionCreator<TaskAction> = (id: string, title: string) => ({
-  type: EDIT_TASK,
+interface EditTask extends PayloadedAction<"task-edit"> { }
+export const editTask: ActionCreator<EditTask> = (id: string, title: string) => ({
+  type: "task-edit",
   payload: {
     id,
     title,
   }
 });
 
-export const DELETE_TASK = 'DELETE_TASK';
-export const deleteTask: ActionCreator<TaskAction> = (id: string) => ({
-  type: DELETE_TASK,
+interface DeleteTask extends PayloadedAction<"task-delete"> { }
+export const deleteTask: ActionCreator<DeleteTask> = (id: string) => ({
+  type: "task-delete",
   payload: {
     id,
   }
 });
 
-export const TOGGLE_TASK = 'TOGGLE_TASK';
-export const toggleTask: ActionCreator<TaskAction> = (id: string) => ({
-  type: TOGGLE_TASK,
+interface ToggleTask extends PayloadedAction<"task-toggle"> { }
+export const toggleTask: ActionCreator<ToggleTask> = (id: string) => ({
+  type: "task-toggle",
   payload: {
     id,
   }
 });
 
-export const TOGGLE_ALL = 'TOGGLE_ALL';
-export const toggleAll: ActionCreator<TaskAction> = (checked: boolean) => ({
-  type: TOGGLE_ALL,
+interface ToggleAll extends PayloadedAction<"task-toggle-all"> { }
+export const toggleAll: ActionCreator<ToggleAll> = (checked: boolean) => ({
+  type: "task-toggle-all",
   payload: {
     checked
   }
 });
 
-export const CLEAR_COMPLETED = 'CLEAR_COMPLETED';
-export const clearCompleted: ActionCreator<Action> = () => ({
-  type: CLEAR_COMPLETED,
+interface ClearComplete extends PayloadedAction<"task-clear-completed"> { }
+export const clearCompleted: ActionCreator<ClearComplete> = () => ({
+  type: "task-clear-completed",
+  payload: {}
 });
+
+export type TaskAction = AddTask | EditTask | DeleteTask | ToggleAll | ToggleTask | ClearComplete;

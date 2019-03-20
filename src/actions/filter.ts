@@ -4,14 +4,15 @@ export interface FilterPayload {
   filter: string;
 }
 
-export interface FilterAction extends Action<string> {
+export interface FilterAction extends Action<"change-filter"> {
   payload: FilterPayload;
 }
 
-export const CHANGE_FILTER = 'CHANGE_FILTER';
-export const changeFilter = (filter: string) => ({
-  type: CHANGE_FILTER,
-  payload: {
-    filter,
-  }
-});
+export function changeFilter(filter: string): FilterAction {
+  return ({
+    type: "change-filter",
+    payload: {
+      filter,
+    }
+  });
+} 

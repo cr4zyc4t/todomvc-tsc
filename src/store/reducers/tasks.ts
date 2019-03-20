@@ -1,5 +1,4 @@
-import { ADD_TASK, EDIT_TASK, DELETE_TASK, TOGGLE_TASK, CLEAR_COMPLETED, TOGGLE_ALL, TaskAction, TaskPayload } from '../../actions/tasks';
-import { Reducer } from 'redux';
+import { TaskAction, TaskPayload } from '../../actions/tasks';
 
 function addTask(state: TaskState, { id, title }: TaskPayload): TaskState {
   if (id && title) {
@@ -58,22 +57,22 @@ type ActionHanlder = (state: TaskState, payload: TaskPayload) => TaskState;
 const tasks = (state = [] as TaskState, { type, payload }: TaskAction) => {
   let actionHandler: ActionHanlder;
   switch (type) {
-    case ADD_TASK:
+    case "task-add":
       actionHandler = addTask;
       break;
-    case EDIT_TASK:
+    case "task-edit":
       actionHandler = editTask;
       break;
-    case DELETE_TASK:
+    case "task-delete":
       actionHandler = deleteTask;
       break;
-    case TOGGLE_TASK:
+    case "task-toggle":
       actionHandler = toggleTask;
       break;
-    case CLEAR_COMPLETED:
+    case "task-clear-completed":
       actionHandler = clearCompleted;
       break;
-    case TOGGLE_ALL:
+    case "task-toggle-all":
       actionHandler = toggleAll;
 
     default:
