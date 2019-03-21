@@ -43,6 +43,7 @@ function toggleTask(state: TaskState, { id }: TaskPayload): TaskState {
 const clearCompleted = (state: TaskState) => state.filter(task => !task.completed);
 
 function toggleAll(state: TaskState, { checked }: TaskPayload): TaskState {
+  console.log("ToanVQ: checked", checked);
   return state.map(task => ({ ...task, completed: !!checked }));
 }
 
@@ -55,6 +56,7 @@ export type TaskState = Task[];
 
 type ActionHanlder = (state: TaskState, payload: TaskPayload) => TaskState;
 const tasks = (state = [] as TaskState, { type, payload }: TaskAction) => {
+  console.log("ToanVQ: tasks -> type", type, payload);
   let actionHandler: ActionHanlder;
   switch (type) {
     case "task-add":
@@ -74,7 +76,7 @@ const tasks = (state = [] as TaskState, { type, payload }: TaskAction) => {
       break;
     case "task-toggle-all":
       actionHandler = toggleAll;
-
+      break;
     default:
       return state;
   }

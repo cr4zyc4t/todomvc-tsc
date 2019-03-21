@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose, Dispatch, AnyAction, Store, Middleware } from 'redux';
 import rootReducer from './reducers';
 import { Task } from './reducers/tasks';
-import { FILTER } from '../config';
+import { FILTER, STORAGE_KEY } from '../config';
 
 export interface AppState {
   filter: string,
@@ -12,7 +12,7 @@ declare global {
   interface Window { __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any; }
 }
 
-let savedTodosStr = localStorage.getItem('todomvc-react-redux');
+let savedTodosStr = localStorage.getItem(STORAGE_KEY);
 let savedTodos: AppState;
 if (savedTodosStr) {
   savedTodos = JSON.parse(savedTodosStr);
@@ -28,7 +28,7 @@ if (savedTodosStr) {
  */
 const saveToStorage: Middleware<{}, AppState, Dispatch<AnyAction>> = (api) => (next: Dispatch) => (action: AnyAction) => {
   const result = next(action);
-  localStorage.setItem('todomvc-react-redux', JSON.stringify(store.getState()));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(store.getState()));
   return result;
 };
 

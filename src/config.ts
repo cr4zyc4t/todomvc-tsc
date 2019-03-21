@@ -3,3 +3,5 @@ export const FILTER = {
   COMPLETED: "Completed",
   ACTIVE: "Active",
 };
+
+export const STORAGE_KEY = "todomvc-tsc";
