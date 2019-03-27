@@ -1,6 +1,7 @@
-import { connect } from 'react-redux';
-import { addTask } from '../actions/tasks';
-import Header from '../components/Header';
+import { connect } from "react-redux";
+
+import { addTask } from "../actions/tasks";
+import Header from "../components/Header";
 
 const mapDispatchToProps = {
   addTask,

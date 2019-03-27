@@ -13,6 +13,6 @@ export function changeFilter(filter: string): FilterAction {
     type: "change-filter",
     payload: {
       filter,
-    }
+    },
   });
 } 

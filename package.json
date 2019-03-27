@@ -25,7 +25,10 @@
     "lint": "npx eslint src --fix"
   },
   "eslintConfig": {
-    "extends": "@cr4zyc4t/eslint-config-react-strict"
+    "extends": [
+      "react-app",
+      "@cr4zyc4t/common"
+    ]
   },
   "browserslist": [
     ">0.2%",
@@ -34,7 +37,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@cr4zyc4t/eslint-config-react-strict": "^1.0.3",
+    "@cr4zyc4t/eslint-config-common": "^1.0.1",
     "@types/classnames": "^2.2.7",
     "@types/jest": "24.0.11",
     "@types/node": "11.11.3",
@@ -42,6 +45,10 @@
     "@types/react": "16.8.8",
     "@types/react-dom": "16.8.2",
     "@types/react-redux": "^7.0.5",
-    "@types/uuid": "^3.4.4"
+    "@types/uuid": "^3.4.4",
+    "@typescript-eslint/eslint-plugin": "^1.5.0",
+    "@typescript-eslint/parser": "^1.5.0",
+    "eslint-config-react-app": "^4.0.0-next.b0cbf2ca",
+    "eslint-plugin-react-hooks": "^1.6.0"
   }
 }

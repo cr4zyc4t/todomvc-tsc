@@ -1,7 +1,9 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import pluralize from 'pluralize';
-import { FILTER } from '../config';
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import * as React from "react";
+import classNames from "classnames";
+import pluralize from "pluralize";
+
+import { FILTER } from "../config";
 
 interface FooterProps {
   filter: string;
@@ -14,15 +16,15 @@ const Footer: React.FC<FooterProps> = (props) => {
   const setFilter = (filter: string) => (e: React.SyntheticEvent) => {
     e.preventDefault();
     props.setFilter(filter);
-  }
+  };
 
   const { remainingTasks, filter, clearCompleted } = props;
-  const activeTodoWord = pluralize('item', remainingTasks);
+  const activeTodoWord = pluralize("item", remainingTasks);
   return (
     <footer className="footer">
       <span className="todo-count">
         <strong>{remainingTasks}</strong> {activeTodoWord} left
-        </span>
+      </span>
       <ul className="filters">
         {
           Object.values(FILTER).map(filterValue => {
@@ -31,11 +33,12 @@ const Footer: React.FC<FooterProps> = (props) => {
                 <a
                   href=""
                   onClick={setFilter(filterValue)}
-                  className={classNames({ selected: filter === filterValue })}>
+                  className={classNames({ selected: filter === filterValue })}
+                >
                   {filterValue}
                 </a>
               </li>
-            )
+            );
           })
         }
       </ul>
@@ -44,9 +47,9 @@ const Footer: React.FC<FooterProps> = (props) => {
         onClick={clearCompleted}
       >
         Clear completed
-        </button>
+      </button>
     </footer>
   );
-}
+};
 
 export default Footer;

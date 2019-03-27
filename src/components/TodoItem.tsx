@@ -1,5 +1,5 @@
-import * as React from 'react';
-import classNames from 'classnames';
+import * as React from "react";
+import classNames from "classnames";
 
 interface TodoItemProps {
   id: string;
@@ -19,7 +19,7 @@ const TodoItem: React.FC<TodoItemProps> = React.memo((props: TodoItemProps) => {
     if (editing && taskInput.current) {
       (taskInput.current as unknown as HTMLInputElement).focus();
     }
-  }, []);
+  }, [editing]);
 
   const deleteTask = () => props.deleteTask(props.id);
 
@@ -27,7 +27,7 @@ const TodoItem: React.FC<TodoItemProps> = React.memo((props: TodoItemProps) => {
 
   const handleEdit = () => {
     setEditing(true);
-  }
+  };
 
   const handleSubmit = () => {
     setEditing(false);
@@ -35,20 +35,21 @@ const TodoItem: React.FC<TodoItemProps> = React.memo((props: TodoItemProps) => {
     if (title && title !== props.title) {
       props.editTask(props.id, title);
     }
-  }
+  };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.keyCode !== 13) {
       return;
     }
     handleSubmit();
-  }
+  };
 
   return (
     <li className={classNames({
       completed: props.completed,
       editing: editing,
-    })}>
+    })}
+    >
       <div className="view">
         <input
           className="toggle"

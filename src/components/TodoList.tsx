@@ -1,6 +1,8 @@
-import * as React from 'react';
-import TodoItem from './TodoItem';
-import { Task } from '../store/reducers/tasks';
+import * as React from "react";
+
+import { Task } from "../store/reducers/tasks";
+
+import TodoItem from "./TodoItem";
 
 interface TodoListProps {
   filteredTasks: Task[];
@@ -14,7 +16,7 @@ const TodoList: React.FC<TodoListProps> = (props) => {
   const toggleAll = (e: React.SyntheticEvent) => {
     const { checked } = e.target as HTMLInputElement;
     props.toggleAll(checked);
-  }
+  };
 
   const {
     editTask,
@@ -50,6 +52,6 @@ const TodoList: React.FC<TodoListProps> = (props) => {
       </ul>
     </section>
   );
-}
+};
 
 export default TodoList;

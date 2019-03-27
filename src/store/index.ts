@@ -1,7 +1,9 @@
-import { createStore, applyMiddleware, compose, Dispatch, AnyAction, Store, Middleware } from 'redux';
-import rootReducer from './reducers';
-import { Task } from './reducers/tasks';
-import { FILTER, STORAGE_KEY } from '../config';
+import { createStore, applyMiddleware, compose, Dispatch, AnyAction, Middleware } from "redux";
+
+import { FILTER, STORAGE_KEY } from "../config";
+
+import rootReducer from "./reducers";
+import { Task } from "./reducers/tasks";
 
 export interface AppState {
   filter: string,
@@ -12,14 +14,14 @@ declare global {
   interface Window { __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any; }
 }
 
-let savedTodosStr = localStorage.getItem(STORAGE_KEY);
+const savedTodosStr = localStorage.getItem(STORAGE_KEY);
 let savedTodos: AppState;
 if (savedTodosStr) {
   savedTodos = JSON.parse(savedTodosStr);
 } else {
   savedTodos = {
     tasks: [],
-    filter: FILTER.ALL
+    filter: FILTER.ALL,
   };
 }
 

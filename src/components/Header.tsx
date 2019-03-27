@@ -1,5 +1,5 @@
-import * as React from 'react';
-import uuid from 'uuid/v4';
+import * as React from "react";
+import uuid from "uuid/v4";
 
 interface HeaderProps {
   addTask(id: string, title: string): void;
@@ -16,7 +16,7 @@ const Header: React.FC<HeaderProps> = ({ addTask }) => {
 
     if (taskTitle) {
       addTask(uuid(), taskTitle);
-      input.value = '';
+      input.value = "";
     }
   };
 
@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({ addTask }) => {
         autoFocus
       />
     </header>
-  )
-}
+  );
+};
 
 export default Header;

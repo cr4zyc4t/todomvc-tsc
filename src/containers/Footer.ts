@@ -1,10 +1,10 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
-import { changeFilter } from '../actions/filter';
-import { clearCompleted } from '../actions/tasks';
-import Footer from '../components/Footer';
-import { countRemainingTasks } from '../store/selectors';
-import { AppState } from '../store';
+import { changeFilter } from "../actions/filter";
+import { clearCompleted } from "../actions/tasks";
+import Footer from "../components/Footer";
+import { countRemainingTasks } from "../store/selectors";
+import { AppState } from "../store";
 
 const mapStateToProps = (state: AppState) => ({
   filter: state.filter,
