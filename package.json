@@ -1,5 +1,5 @@
 {
-  "name": "todomvc-ts",
+  "name": "todomvc-tsc",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -50,5 +50,23 @@
     "@typescript-eslint/parser": "^1.5.0",
     "eslint-config-react-app": "^4.0.0-next.b0cbf2ca",
     "eslint-plugin-react-hooks": "^1.6.0"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cr4zyc4t/todomvc-tsc.git"
+  },
+  "keywords": [
+    "todomvc",
+    "redux",
+    "react",
+    "typescript"
+  ],
+  "author": "ToanVQ <hunter9xbn@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cr4zyc4t/todomvc-tsc/issues"
+  },
+  "homepage": "https://github.com/cr4zyc4t/todomvc-tsc#readme"
 }
