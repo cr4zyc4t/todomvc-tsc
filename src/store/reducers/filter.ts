@@ -1,5 +1,5 @@
-import { FilterAction } from '../../actions/filter';
-import { FILTER } from '../../config';
+import { FilterAction } from "../../actions/filter";
+import { FILTER } from "../../config";
 
 function users(state = FILTER.ALL, actions: FilterAction): string {
   switch (actions.type) {

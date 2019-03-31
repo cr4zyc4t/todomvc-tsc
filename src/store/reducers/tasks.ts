@@ -1,11 +1,11 @@
-import { TaskAction, TaskPayload } from '../../actions/tasks';
+import { TaskAction, TaskPayload } from "../../actions/tasks";
 
 function addTask(state: TaskState, { id, title }: TaskPayload): TaskState {
   if (id && title) {
     return [{
       id,
       title,
-      completed: false
+      completed: false,
     }, ...state];
   }
   return state;
@@ -17,7 +17,7 @@ function editTask(state: TaskState, { id, title }: TaskPayload): TaskState {
       return {
         id,
         title: title || "",
-        completed: task.completed
+        completed: task.completed,
       };
     }
     return task;
@@ -33,7 +33,7 @@ function toggleTask(state: TaskState, { id }: TaskPayload): TaskState {
     if (task.id === id) {
       return {
         ...task,
-        completed: !task.completed
+        completed: !task.completed,
       };
     }
     return task;

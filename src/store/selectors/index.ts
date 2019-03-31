@@ -1,6 +1,8 @@
-import { createSelector } from 'reselect';
-import { AppState } from '..';
-import { FILTER } from '../../config';
+import { createSelector } from "reselect";
+
+import { AppState } from "..";
+
+import { FILTER } from "../../config";
 
 const tasks = (state: AppState) => state.tasks;
 const filter = (state: AppState) => state.filter;
