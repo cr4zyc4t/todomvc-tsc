@@ -6,10 +6,9 @@
     "classnames": "^2.2.6",
     "normalize.css": "^8.0.1",
     "pluralize": "^7.0.0",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "react-redux": "^6.0.1",
-    "react-scripts": "2.1.8",
     "redux": "^4.0.1",
     "reselect": "^4.0.0",
     "todomvc-app-css": "^2.2.0",
@@ -49,7 +48,8 @@
     "@typescript-eslint/eslint-plugin": "^1.5.0",
     "@typescript-eslint/parser": "^1.5.0",
     "eslint-config-react-app": "^4.0.0-next.b0cbf2ca",
-    "eslint-plugin-react-hooks": "^1.6.0"
+    "eslint-plugin-react-hooks": "^1.6.0",
+    "react-scripts": "^2.1.8"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
