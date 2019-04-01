@@ -1,4 +1,5 @@
 import { TaskAction, TaskPayload } from "../../actions/tasks";
+// import { createReducer } from "../../utils";
 
 function addTask(state: TaskState, { id, title }: TaskPayload): TaskState {
   if (id && title) {
@@ -54,6 +55,7 @@ export interface Task {
 export type TaskState = Task[];
 
 type ActionHanlder = (state: TaskState, payload: TaskPayload) => TaskState;
+
 const tasks = (state = [] as TaskState, { type, payload }: TaskAction) => {
   let actionHandler: ActionHanlder;
   switch (type) {
@@ -83,22 +85,13 @@ const tasks = (state = [] as TaskState, { type, payload }: TaskAction) => {
   }
 };
 
-// interface Hanlders {
-//   [key: string]: (state: TaskState, payload: TaskPayload) => TaskState;
-// }
-
-// const handlers: Hanlders = {
-//   [ADD_TASK]: addTask,
-//   [EDIT_TASK]: editTask,
-//   [DELETE_TASK]: deleteTask,
-//   [TOGGLE_TASK]: toggleTask,
-//   [CLEAR_COMPLETED]: clearCompleted,
-//   [TOGGLE_ALL]: toggleAll,
-// };
-
-// const users = (state = [], { type, payload }: TaskAction) => {
-//   const handler = handlers[type];
-//   return !handler ? state : handler(state, payload);
-// };
+// const tasks = createReducer([] as TaskState, {
+//   "task-add": addTask,
+//   "task-edit": editTask,
+//   "task-delete": deleteTask,
+//   "task-toggle": toggleTask,
+//   "task-clear-completed": clearCompleted,
+//   "task-toggle-all": toggleAll,
+// });
 
 export default tasks;

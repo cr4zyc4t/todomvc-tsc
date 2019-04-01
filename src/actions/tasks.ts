@@ -6,7 +6,7 @@ export interface TaskPayload {
   checked?: boolean;
 }
 
-interface PayloadedAction<T> extends Action<T> {
+export interface PayloadedAction<T> extends Action<T> {
   payload: TaskPayload;
 }
 
