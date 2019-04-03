@@ -17,4 +17,6 @@ const mapDispatchToProps = {
   clearCompleted,
 };
 
+export type FooterProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
+
 export default connect(mapStateToProps, mapDispatchToProps)(Footer);

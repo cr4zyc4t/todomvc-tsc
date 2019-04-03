@@ -1,16 +1,8 @@
 import * as React from "react";
 
-import { Task } from "../../store/reducers/tasks";
-
 import TodoItem from "./TodoItem";
 
-interface TodoListProps {
-  filteredTasks: Task[];
-  toggleAll(checked: boolean): void;
-  editTask(id: string, title: string): void;
-  deleteTask(id: string): void;
-  toggleTask(id: string): void;
-}
+import { TodoListProps } from ".";
 
 const TodoList: React.FC<TodoListProps> = (props) => {
   const toggleAll = (e: React.SyntheticEvent) => {

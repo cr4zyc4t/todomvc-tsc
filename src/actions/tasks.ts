@@ -1,4 +1,4 @@
-import { Action, ActionCreator, AnyAction } from "redux";
+import { Action, AnyAction } from "redux";
 import { ThunkDispatch } from "redux-thunk";
 
 import { AppState } from "../store/reducers";
@@ -14,7 +14,7 @@ export interface PayloadedAction<T> extends Action<T> {
 }
 
 interface AddTask extends PayloadedAction<"task-add"> { }
-export const addTask: ActionCreator<AddTask> = (id: string, title: string) => ({
+export const addTask = (id: string, title: string): AddTask => ({
   type: "task-add",
   payload: {
     id,
@@ -23,7 +23,7 @@ export const addTask: ActionCreator<AddTask> = (id: string, title: string) => ({
 });
 
 interface EditTask extends PayloadedAction<"task-edit"> { }
-export const editTask: ActionCreator<EditTask> = (id: string, title: string) => ({
+export const editTask = (id: string, title: string): EditTask => ({
   type: "task-edit",
   payload: {
     id,
@@ -32,7 +32,7 @@ export const editTask: ActionCreator<EditTask> = (id: string, title: string) => 
 });
 
 interface DeleteTask extends PayloadedAction<"task-delete"> { }
-export const deleteTask: ActionCreator<DeleteTask> = (id: string) => ({
+export const deleteTask = (id: string): DeleteTask => ({
   type: "task-delete",
   payload: {
     id,
@@ -40,7 +40,7 @@ export const deleteTask: ActionCreator<DeleteTask> = (id: string) => ({
 });
 
 interface ToggleTask extends PayloadedAction<"task-toggle"> { }
-export const toggleTask: ActionCreator<ToggleTask> = (id: string) => ({
+export const toggleTask = (id: string): ToggleTask => ({
   type: "task-toggle",
   payload: {
     id,
@@ -48,7 +48,7 @@ export const toggleTask: ActionCreator<ToggleTask> = (id: string) => ({
 });
 
 interface ToggleAll extends PayloadedAction<"task-toggle-all"> { }
-export const toggleAll: ActionCreator<ToggleAll> = (checked: boolean) => ({
+export const toggleAll = (checked: boolean): ToggleAll => ({
   type: "task-toggle-all",
   payload: {
     checked,
@@ -56,11 +56,10 @@ export const toggleAll: ActionCreator<ToggleAll> = (checked: boolean) => ({
 });
 
 interface ClearComplete extends PayloadedAction<"task-clear-completed"> { }
-export const clearCompleted: ActionCreator<ClearComplete> = () => ({
+export const clearCompleted = (): ClearComplete => ({
   type: "task-clear-completed",
   payload: {},
 });
-export type ClearCompleteActionCreator = typeof clearCompleted;
 
 function delay(miliseconds = 1000) {
   return new Promise(resolve => {

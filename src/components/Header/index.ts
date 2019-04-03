@@ -8,4 +8,6 @@ const mapDispatchToProps = {
   addTask,
 };
 
+export type HeaderProps = typeof mapDispatchToProps;
+
 export default connect(undefined, mapDispatchToProps)(Header);

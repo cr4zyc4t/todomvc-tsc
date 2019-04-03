@@ -17,4 +17,6 @@ const mapDispatchToProps = {
   toggleAll,
 };
 
+export type TodoListProps = ReturnType<typeof mapStateToProps> & typeof mapDispatchToProps;
+
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

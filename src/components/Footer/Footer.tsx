@@ -4,16 +4,10 @@ import classNames from "classnames";
 import pluralize from "pluralize";
 
 import { FILTER } from "../../config";
-import { ClearCompleteActionCreator } from "../../actions/tasks";
 
-interface FooterProps {
-  filter: string;
-  remainingTasks: number;
-  setFilter(filter: string): void;
-  clearCompleted: ClearCompleteActionCreator;
-}
+import { FooterProps } from ".";
 
-const Footer: React.FC<FooterProps> = (props: FooterProps) => {
+const Footer: React.FC<FooterProps> = (props) => {
   const setFilter = (filter: string) => (e: React.SyntheticEvent) => {
     e.preventDefault();
     props.setFilter(filter);

@@ -1,9 +1,7 @@
 import * as React from "react";
 import uuid from "uuid/v4";
 
-interface HeaderProps {
-  addTask(id: string, title: string): void;
-}
+import { HeaderProps } from ".";
 
 const Header: React.FC<HeaderProps> = ({ addTask }) => {
   const submitNewTask = (e: React.KeyboardEvent) => {
