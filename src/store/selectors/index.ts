@@ -1,8 +1,7 @@
 import { createSelector } from "reselect";
 
-import { AppState } from "..";
-
 import { FILTER } from "../../config";
+import { AppState } from "../reducers";
 
 const tasks = (state: AppState) => state.tasks;
 const filter = (state: AppState) => state.filter;

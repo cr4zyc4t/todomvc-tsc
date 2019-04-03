@@ -1,14 +1,9 @@
-import { createStore, applyMiddleware, compose, Dispatch, AnyAction, Middleware } from "redux";
+import { createStore, applyMiddleware, compose, Dispatch, AnyAction, Middleware, MiddlewareAPI } from "redux";
+import thunk from "redux-thunk";
 
 import { FILTER, STORAGE_KEY } from "../config";
 
-import rootReducer from "./reducers";
-import { Task } from "./reducers/tasks";
-
-export interface AppState {
-  filter: string,
-  tasks: Task[],
-}
+import rootReducer, { AppState } from "./reducers";
 
 declare global {
   interface Window { __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: any; }
@@ -28,9 +23,9 @@ if (savedTodosStr) {
 /**
  * Save to localstorage on every state change
  */
-const saveToStorage: Middleware<{}, AppState, Dispatch<AnyAction>> = (api) => (next: Dispatch) => (action: AnyAction) => {
+const saveToStorage: Middleware<{}, AppState, Dispatch<AnyAction>> = (api: MiddlewareAPI) => (next: Dispatch) => (action: AnyAction) => {
   const result = next(action);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(store.getState()));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(api.getState()));
   return result;
 };
 
@@ -41,7 +36,8 @@ const store = createStore(
   savedTodos,
   composeEnhancers(
     applyMiddleware(
-      saveToStorage
+      saveToStorage,
+      thunk,
     )
   )
 );

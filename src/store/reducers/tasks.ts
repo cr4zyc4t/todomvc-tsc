@@ -80,9 +80,7 @@ const tasks = (state = [] as TaskState, { type, payload }: TaskAction) => {
     default:
       return state;
   }
-  if (actionHandler) {
-    return actionHandler(state, payload);
-  }
+  return actionHandler(state, payload);
 };
 
 // const tasks = createReducer([] as TaskState, {

@@ -4,7 +4,7 @@ import { changeFilter } from "../actions/filter";
 import { clearCompleted } from "../actions/tasks";
 import Footer from "../components/Footer";
 import { countRemainingTasks } from "../store/selectors";
-import { AppState } from "../store";
+import { AppState } from "../store/reducers";
 
 const mapStateToProps = (state: AppState) => ({
   filter: state.filter,

@@ -1,4 +1,7 @@
-import { Action, ActionCreator } from "redux";
+import { Action, ActionCreator, AnyAction } from "redux";
+import { ThunkDispatch } from "redux-thunk";
+
+import { AppState } from "../store/reducers";
 
 export interface TaskPayload {
   id?: string;
@@ -57,5 +60,22 @@ export const clearCompleted: ActionCreator<ClearComplete> = () => ({
   type: "task-clear-completed",
   payload: {},
 });
+export type ClearCompleteActionCreator = typeof clearCompleted;
+
+function delay(miliseconds = 1000) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(true);
+    }, miliseconds);
+  });
+}
+
+export const asyncClearComplete = () => async (
+  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  getState: () => AppState
+) => {
+  await delay(500);
+  dispatch(clearCompleted());
+};
 
 export type TaskAction = AddTask | EditTask | DeleteTask | ToggleAll | ToggleTask | ClearComplete;

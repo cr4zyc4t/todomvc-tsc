@@ -10,5 +10,7 @@
       "language": "typescriptreact",
       "autoFix": true
     }
-  ]
+  ],
+  "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": true
 }
