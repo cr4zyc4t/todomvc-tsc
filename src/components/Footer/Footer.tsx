@@ -3,8 +3,8 @@ import * as React from "react";
 import classNames from "classnames";
 import pluralize from "pluralize";
 
-import { FILTER } from "../config";
-import { ClearCompleteActionCreator } from "../actions/tasks";
+import { FILTER } from "../../config";
+import { ClearCompleteActionCreator } from "../../actions/tasks";
 
 interface FooterProps {
   filter: string;

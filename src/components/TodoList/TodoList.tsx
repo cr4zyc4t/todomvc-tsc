@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { Task } from "../store/reducers/tasks";
+import { Task } from "../../store/reducers/tasks";
 
 import TodoItem from "./TodoItem";
 

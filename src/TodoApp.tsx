@@ -1,8 +1,8 @@
 import * as React from "react";
 
-import Header from "./containers/Header";
-import TodoList from "./containers/TodoList";
-import Footer from "./containers/Footer";
+import Header from "./components/Header";
+import TodoList from "./components/TodoList";
+import Footer from "./components/Footer";
 
 import "normalize.css";
 import "todomvc-common/base.css";
